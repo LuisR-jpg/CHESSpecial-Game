@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class Clickable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    private bool clicked = false;
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !clicked)
         {
+            clicked = true;
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100.0f))
@@ -24,6 +19,10 @@ public class Clickable : MonoBehaviour
                     ClickAction(hit.transform.gameObject);
                 }
             }
+        }
+        else if (!Input.GetMouseButton(0))
+        {
+            clicked = false;
         }
     }
    
