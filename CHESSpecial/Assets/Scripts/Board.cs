@@ -29,7 +29,7 @@ public class Board: MonoBehaviour
     }
     IEnumerator Move(GameObject p)
     {
-        while(true) {
+        //while(true) {
             float prevX = p.transform.position.x;
             p.GetComponent<Rigidbody>().velocity = new Vector3(5, 0, 0);
             print("hola");
@@ -37,6 +37,6 @@ public class Board: MonoBehaviour
             p.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             print("adios");
             yield return new WaitForSeconds(1);
-        }
+        //}
     }
 }
