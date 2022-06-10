@@ -1954,5 +1954,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScriptHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: nCols
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: nRows
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a71f6f3585124d4ea9a8401f06d3df1, type: 3}
