@@ -1974,13 +1974,19 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 9162374307631949984, guid: 74f3827fe25a7ea4ab2621ac331c530d,
+        type: 3}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
       propertyPath: nCols
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}
       propertyPath: nRows
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}

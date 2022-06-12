@@ -10,7 +10,7 @@ public class QueenController : PieceBaseController
         if (state == 1) // move forward
         {
             CheckAttack();
-            if (CheckFront() == 0) return; // blocked
+            if (!CheckFront()) return; // blocked
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, transform.position + new Vector3(dir, 0, 0), step);
         }

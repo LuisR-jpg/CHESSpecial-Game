@@ -29,7 +29,7 @@ public abstract class PieceBaseController : MonoBehaviour
     {
         if (state == 1) // move forward
         {
-            if (CheckFront() == 0 && steps == 0) return; // blocked
+            if (!CheckFront() && steps == 0) return; // blocked
             CheckAttack();
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, transform.position + new Vector3(dir, 0, 0), step);
@@ -53,20 +53,22 @@ public abstract class PieceBaseController : MonoBehaviour
         else if (state == 2) // attack
         {
             Attack();
+            // reassign currentyAttacking
             if (!ShouldAttack() && aState == 0) state = prevState;
         }
     }
 
-    protected int CheckFront()
+    protected bool CheckFront()
     {
         var elev = new Vector3(0, 0.5f, 0);
         RaycastHit hit;
         Debug.DrawRay(transform.position + elev, new Vector3(dir, 0, 0) * 1f, Color.green);
         if (Physics.Raycast(transform.position + elev, new Vector3(dir, 0, 0), out hit, 1f))
         {
-            return 0;
+            if(hit.transform.gameObject.tag == gameObject.tag)
+                return false;
         }
-        return 1; 
+        return true; 
     }
 
     protected void CheckAttack()
@@ -96,7 +98,7 @@ public abstract class PieceBaseController : MonoBehaviour
         return null;
     }
 
-    public void Damage(int damage)
+    public virtual void Damage(int damage)
     {
         strength -= damage;
         // Kill
