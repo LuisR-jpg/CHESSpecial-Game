@@ -42,7 +42,8 @@ public class EventTracker
 
 	public void PlacePiece(GameObject cell)
 	{
-		if (!piece) return; 
+		if (!piece) return;
+		if (cell.tag == "white" || cell.tag == "black") return; 
 		GameObject p = GameObject.Instantiate(piece);
 		p.transform.position = cell.transform.position;
 		ClearPiece(); 

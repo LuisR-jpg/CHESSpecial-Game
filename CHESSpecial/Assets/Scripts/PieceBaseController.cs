@@ -4,26 +4,33 @@ using UnityEngine;
 
 public abstract class PieceBaseController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private int state; // 0 -> stop, 1 -> forward, 2 -> attack
-    private float speed = 1f;
-    private int steps, stopTime;
+    protected int state, prevState; // 0 -> stop, 1 -> forward, 2 -> attack
+    protected int aState; // 0 -> good to continue, 1 -> start attack, other -> on attack
+    protected float speed = 1f;
+    protected int steps, stopTime;
+    protected float cellSize = 1f; 
     public int dir = 1;
-    protected int strength, power;
+    public int strength, power, range;
+    protected GameObject currentlyAttacking;
  
     void Start()
     {
         state = 1;
         steps = 0;
         stopTime = 0;
-        SetStats();
     }
 
     void FixedUpdate()
     {
+        MyFixedUpdate();
+    }
+
+    public virtual void MyFixedUpdate()
+    {
         if (state == 1) // move forward
         {
             if (CheckFront() == 0 && steps == 0) return; // blocked
+            CheckAttack();
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, transform.position + new Vector3(dir, 0, 0), step);
             steps++;
@@ -35,7 +42,7 @@ public abstract class PieceBaseController : MonoBehaviour
         }
         else if (state == 0) // stop
         {
-            if (ShouldAttack()) state = 2; 
+            CheckAttack();
             stopTime++;
             if (stopTime == 100)
             {
@@ -46,33 +53,60 @@ public abstract class PieceBaseController : MonoBehaviour
         else if (state == 2) // attack
         {
             Attack();
-            if (!ShouldAttack()) state = 0; 
+            if (!ShouldAttack() && aState == 0) state = prevState;
         }
     }
 
-    private int CheckFront()
+    protected int CheckFront()
     {
+        var elev = new Vector3(0, 0.5f, 0);
         RaycastHit hit;
-        Debug.DrawRay(transform.position, new Vector3(dir, 0, 0) * 1f, Color.green);
-        if (Physics.Raycast(transform.position, new Vector3(dir, 0, 0), out hit, 1f))
+        Debug.DrawRay(transform.position + elev, new Vector3(dir, 0, 0) * 1f, Color.green);
+        if (Physics.Raycast(transform.position + elev, new Vector3(dir, 0, 0), out hit, 1f))
         {
-            print(hit.transform.gameObject);
             return 0;
         }
         return 1; 
     }
 
-    private bool ShouldAttack()
+    protected void CheckAttack()
     {
-        RaycastHit hit;
-        Debug.DrawRay(transform.position, new Vector3(dir, 0, 0) * 1f, Color.green);
-        if (Physics.Raycast(transform.position, new Vector3(dir, 0, 0), out hit, 1f))
+        GameObject enemy = ShouldAttack(); 
+        if(enemy != null)
         {
-            if (hit.transform.gameObject.tag != gameObject.tag) return true;
+            currentlyAttacking = enemy;
+            prevState = state;
+            aState = 1;
+            state = 2;
         }
-        return false;
+    }
+
+    protected GameObject ShouldAttack()
+    {
+        var elev = new Vector3(0, 0.5f, 0);
+        for (int offset = 0; offset < range; offset++)
+        {
+            RaycastHit hit;
+            Debug.DrawRay(transform.position + new Vector3(dir, 0, 0) * offset + elev, new Vector3(dir, 0, 0) * 1f, Color.red);
+            if (Physics.Raycast(transform.position + new Vector3(dir, 0, 0) * offset + elev, new Vector3(dir, 0, 0), out hit, 1f))
+            {
+                if (hit.transform.gameObject.tag != gameObject.tag) return hit.transform.gameObject;
+            }
+        }
+        return null;
+    }
+
+    public void Damage(int damage)
+    {
+        strength -= damage;
+        // Kill
+        if (strength <= 0)
+        {
+            // Instantiate(explosion, transform.position, Quaternion.identity);
+            // AudioSource.PlayClipAtPoint(destroyed, transform.position);
+            Destroy(gameObject);
+        }
     }
 
     public abstract void Attack();
-    public abstract void SetStats(); 
 }

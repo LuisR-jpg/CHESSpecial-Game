@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7133380961174389564}
   - component: {fileID: 7123101440363560840}
   - component: {fileID: 8989855578619919053}
-  - component: {fileID: 2511337025877421466}
+  - component: {fileID: 6812662730121849217}
   m_Layer: 0
   m_Name: Bishop White
   m_TagString: white
@@ -94,19 +94,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.029786097, y: 0.029786093, z: 0.057704378}
   m_Center: {x: 0, y: 9.313226e-10, z: 0.028852126}
---- !u!54 &2511337025877421466
-Rigidbody:
+--- !u!114 &6812662730121849217
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7100044553109119940}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c0901f486e98c4c9d07b61b35e17e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: -1
+  strength: 70
+  power: 12
+  range: 3
+  projectile: {fileID: 105079688572307581, guid: a6bc6a30c97f0bb4aad8705736ca6e69,
+    type: 3}

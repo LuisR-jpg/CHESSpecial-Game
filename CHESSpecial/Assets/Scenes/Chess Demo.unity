@@ -1956,13 +1956,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}
+      propertyPath: king
+      value: 
+      objectReference: {fileID: 7825831084831456390, guid: 3b0abf97180cda54ebd478b10e1c0a1b,
+        type: 3}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: pawn
+      value: 
+      objectReference: {fileID: 3476051502319044235, guid: 37f6eb368fe5903498e0bd5de495e492,
+        type: 3}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: rook
+      value: 
+      objectReference: {fileID: 313930299721220617, guid: 17effc96644104e4fb3591d93c084f01,
+        type: 3}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
       propertyPath: nCols
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}
       propertyPath: nRows
-      value: 8
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: piece
+      value: 
+      objectReference: {fileID: 3476051502319044235, guid: 37f6eb368fe5903498e0bd5de495e492,
+        type: 3}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: queen
+      value: 
+      objectReference: {fileID: 1849341958381372244, guid: 5b74ef18a8f0ada4c8e40adc98ad7173,
+        type: 3}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: bishop
+      value: 
+      objectReference: {fileID: 7100044553109119940, guid: 2e9509474739c2242a54f5b9acb8c079,
+        type: 3}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: knight
+      value: 
+      objectReference: {fileID: 3237306622281316572, guid: 5041d6bcb23d70644b525d663478040d,
+        type: 3}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: difficulty
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a71f6f3585124d4ea9a8401f06d3df1, type: 3}

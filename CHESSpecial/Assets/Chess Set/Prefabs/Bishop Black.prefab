@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8223464183028648820}
   - component: {fileID: 8231197106499252286}
   - component: {fileID: 2736011251140173453}
+  - component: {fileID: 6929078014296012879}
   m_Layer: 0
   m_Name: Bishop Black
   m_TagString: black
@@ -93,3 +94,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.029786097, y: 0.029786093, z: 0.057704378}
   m_Center: {x: 0, y: 9.313226e-10, z: 0.028852126}
+--- !u!114 &6929078014296012879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8244170954900605302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c0901f486e98c4c9d07b61b35e17e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: 1
+  strength: 70
+  power: 12
+  range: 3
+  projectile: {fileID: 105079688572307581, guid: a6bc6a30c97f0bb4aad8705736ca6e69,
+    type: 3}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6472188216367147571}
   - component: {fileID: 6482192593871796409}
   - component: {fileID: 1176620360844832343}
+  - component: {fileID: 4933469718965216772}
   m_Layer: 0
   m_Name: Rook Black
   m_TagString: black
@@ -93,3 +94,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.029786097, y: 0.029786093, z: 0.042676803}
   m_Center: {x: 0, y: 9.313226e-10, z: 0.021338338}
+--- !u!114 &4933469718965216772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6460242363353497271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c0901f486e98c4c9d07b61b35e17e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: 1
+  strength: 50
+  power: 8
+  range: 5
+  projectile: {fileID: 465873322752867916, guid: d911e3b376163b54e91d1dd34c7759c2,
+    type: 3}
