@@ -16,8 +16,10 @@ public class QueenController : PieceBaseController
         }
         else if (state == 2) // attack
         {
+            var reScan = ShouldAttack();
+            if (reScan) currentlyAttacking = reScan; 
             Attack();
-            if (!ShouldAttack() && aState == 0) state = 1;
+            if (!reScan && aState == 0) state = 1;
         }
     }
 

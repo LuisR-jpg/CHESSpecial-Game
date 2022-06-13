@@ -52,9 +52,10 @@ public abstract class PieceBaseController : MonoBehaviour
         }
         else if (state == 2) // attack
         {
+            var reScan = ShouldAttack();
+            if (reScan) currentlyAttacking = reScan;
             Attack();
-            // reassign currentyAttacking
-            if (!ShouldAttack() && aState == 0) state = prevState;
+            if (!reScan && aState == 0) state = prevState;
         }
     }
 

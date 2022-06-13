@@ -48,8 +48,7 @@ public class Board: MonoBehaviour
     {
         while(true)
         {
-            //int idx = Random.Range(0, difficulty);
-            int idx = 4; 
+            int idx = Random.Range(0, difficulty);
             var cell = spawningCells[Random.Range(0, nCols)];
             var piece = Instantiate(pieces[idx]);
             piece.transform.position = cell.transform.position;
