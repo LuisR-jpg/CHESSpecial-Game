@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class WallController : PieceBaseController
@@ -25,7 +26,8 @@ public class WallController : PieceBaseController
         text.text = strength.ToString();
         if(strength == 0)
         {
-            Debug.Log(tag == "black"? "You Lost": "You Won");
+            string newScene = tag == "black"? "WhiteWins": "BlackWins";
+            SceneManager.LoadScene(newScene);
         }
     }
 }
