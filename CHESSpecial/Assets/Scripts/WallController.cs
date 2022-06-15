@@ -1,9 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WallController : PieceBaseController
 {
+    TextMeshProUGUI text;
+    protected override void Start()
+    {
+        base.Start();
+        string find = tag == "black"? "BlackIndicator": "WhiteIndicator";
+        text = GameObject.Find("/Canvas/" + find + "/HP").GetComponent<TextMeshProUGUI>();
+        text.text = strength.ToString();
+    }
     // Ignore this method, this is just shitty design
     public override void MyFixedUpdate() { }
     // Ignore this method, this is just shitty design
@@ -11,7 +20,12 @@ public class WallController : PieceBaseController
 
     public override void Damage(int damage, bool willBeDestroyed)
     {
-        
-        print(damage); 
+        strength -= damage;
+        strength = Mathf.Max(0, strength);
+        text.text = strength.ToString();
+        if(strength == 0)
+        {
+            Debug.Log(tag == "black"? "You Lost": "You Won");
+        }
     }
 }

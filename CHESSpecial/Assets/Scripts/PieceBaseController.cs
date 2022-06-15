@@ -13,7 +13,7 @@ public abstract class PieceBaseController : MonoBehaviour
     public int strength, power, range, cost;
     protected GameObject currentlyAttacking;
  
-    void Start()
+    protected virtual void Start()
     {
         state = 1;
         steps = 0;
