@@ -40,4 +40,12 @@ public class CoinsManager
 	{
 		return coins >= qty;
 	}
+	public IEnumerator TimeReward() 
+	{
+		while(true)
+		{
+			yield return new WaitForSecondsRealtime(1);
+			addCoins(1);
+		}
+	}
 }

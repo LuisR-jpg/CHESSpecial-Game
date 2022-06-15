@@ -35,7 +35,8 @@ public class MeeleController : PieceBaseController
         {
             aState = 0;
             if (currentlyAttacking == null) return;
-            currentlyAttacking.GetComponent<PieceBaseController>().Damage(power);
+            PieceBaseController enemy = currentlyAttacking.GetComponent<PieceBaseController>();
+            enemy.Damage(power, strength < enemy.strength);
         }
         else if (aState == 0)
         {

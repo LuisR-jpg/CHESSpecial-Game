@@ -9,7 +9,7 @@ public abstract class PieceBaseController : MonoBehaviour
     protected float speed = 1f;
     protected int steps, stopTime;
     protected float cellSize = 1f; 
-    public int dir = 1;
+    public int dir = 1; //1 player, -1 AI
     public int strength, power, range, cost;
     protected GameObject currentlyAttacking;
  
@@ -99,14 +99,21 @@ public abstract class PieceBaseController : MonoBehaviour
         return null;
     }
 
-    public virtual void Damage(int damage)
+    public virtual void Damage(int damage, bool applicableBonus)
     {
         strength -= damage;
         // Kill
         if (strength <= 0)
         {
+
             // Instantiate(explosion, transform.position, Quaternion.identity);
             // AudioSource.PlayClipAtPoint(destroyed, transform.position);
+            if(dir == -1) CoinsManager.Instance.addCoins(cost);
+            if(applicableBonus && Random.Range(0, 1) % 2 == 0)
+            {
+                CoinsManager.Instance.addCoins(25);
+                Debug.Log("bonus");
+            }
             Destroy(gameObject);
         }
     }

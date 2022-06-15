@@ -14,6 +14,11 @@ public class ButtonScript : MonoBehaviour
         b.interactable = true;
         b.onClick.AddListener(Click);
     }
+    void Update()
+    {
+        PieceBaseController script = piece.GetComponent<PieceBaseController>();
+		if(script) b.interactable = CoinsManager.Instance.canAfford(script.cost);
+    }
     void Click()
     {
         EventTracker.Instance.ClearPiece();

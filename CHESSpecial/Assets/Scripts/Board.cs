@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Board: MonoBehaviour
 {
-
     public GameObject whiteCell, blackCell;
     public GameObject pawn, rook, knight, bishop, queen, king;
     public GameObject wall;
@@ -35,6 +34,7 @@ public class Board: MonoBehaviour
 
         var coins = CoinsManager.Instance;
         coins.SetText(coinsText);
+        StartCoroutine(coins.TimeReward());
 
         var wallB = Instantiate(wall);
         wallB.tag = "black";
