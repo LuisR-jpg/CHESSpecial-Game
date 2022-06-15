@@ -10,7 +10,7 @@ public abstract class PieceBaseController : MonoBehaviour
     protected int steps, stopTime;
     protected float cellSize = 1f; 
     public int dir = 1;
-    public int strength, power, range;
+    public int strength, power, range, cost;
     protected GameObject currentlyAttacking;
  
     void Start()

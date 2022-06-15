@@ -36,4 +36,8 @@ public class CoinsManager
         coins += qty;
         text.text = coins.ToString();
     }
+	public bool canAfford(int qty) 
+	{
+		return coins >= qty;
+	}
 }

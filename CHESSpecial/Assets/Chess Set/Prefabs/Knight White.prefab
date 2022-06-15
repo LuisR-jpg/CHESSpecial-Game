@@ -110,3 +110,4 @@ MonoBehaviour:
   strength: 100
   power: 15
   range: 1
+  cost: 30

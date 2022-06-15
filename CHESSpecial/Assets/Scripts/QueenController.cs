@@ -52,7 +52,6 @@ public class QueenController : PieceBaseController
         {
             aState = 0;
             if (currentlyAttacking == null) return;
-            Debug.Log(power);
             currentlyAttacking.GetComponent<PieceBaseController>().Damage(power);
         }
         else if (aState == 0)

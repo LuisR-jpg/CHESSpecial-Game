@@ -110,5 +110,6 @@ MonoBehaviour:
   strength: 50
   power: 8
   range: 5
+  cost: 15
   projectile: {fileID: 465873322752867916, guid: d911e3b376163b54e91d1dd34c7759c2,
     type: 3}
