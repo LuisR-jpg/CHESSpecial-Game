@@ -2111,7 +2111,7 @@ PrefabInstance:
         type: 3}
       propertyPath: piece
       value: 
-      objectReference: {fileID: 8360885649689953338, guid: f657dbdc699def748ad2ba65c7f79545,
+      objectReference: {fileID: 5578708838954500633, guid: f657dbdc699def748ad2ba65c7f79545,
         type: 3}
     - target: {fileID: 697368546268192594, guid: e6e6d857ea5572a4785b291f210a8c0f,
         type: 3}
@@ -2308,7 +2308,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pawn
       value: 
-      objectReference: {fileID: 3476051502319044235, guid: 37f6eb368fe5903498e0bd5de495e492,
+      objectReference: {fileID: 2595344457564175499, guid: 37f6eb368fe5903498e0bd5de495e492,
         type: 3}
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}
