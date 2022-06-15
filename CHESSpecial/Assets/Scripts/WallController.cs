@@ -11,6 +11,7 @@ public class WallController : PieceBaseController
 
     public override void Damage(int damage, bool willBeDestroyed)
     {
+        
         print(damage); 
     }
 }

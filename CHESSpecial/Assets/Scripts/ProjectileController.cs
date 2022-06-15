@@ -18,7 +18,8 @@ public class ProjectileController : PieceBaseController
             p.layer = LayerMask.NameToLayer("Ignore Raycast");
             float v = Mathf.Sqrt(9.81f * (Mathf.Abs(currentlyAttacking.transform.position.x - transform.position.x) - 0.70f) / 2);
             p.GetComponent<Rigidbody>().velocity = new Vector3(dir * v, v, 0);
-            currentlyAttacking.GetComponent<PieceBaseController>().Damage(power, false);
+            PieceBaseController enemy = currentlyAttacking.GetComponent<PieceBaseController>();
+            enemy.Damage(power, strength < enemy.strength);
         }
         else if (aState == 2)
         {
