@@ -8,6 +8,7 @@ public class Board: MonoBehaviour
     public GameObject whiteCell, blackCell;
     public GameObject pawn, rook, knight, bishop, queen, king;
     public GameObject wall;
+    public GameObject coinsText;
     public int nRows = 8;
     public int nCols = 8;
     public int difficulty; // max level of pieces that should appear
@@ -31,6 +32,10 @@ public class Board: MonoBehaviour
                 if (i == nRows - 1) spawningCells.Add(cell); 
             }
         }
+
+        var coins = CoinsManager.Instance;
+        coins.SetText(coinsText);
+
         var wallB = Instantiate(wall);
         wallB.tag = "black";
         wallB.transform.position = new Vector3(-(float)nRows / 2 - 1.25f, 1f, - 1f);
