@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3282634428543684178}
   - component: {fileID: 3282634428543684181}
   - component: {fileID: 3282634428543684179}
+  - component: {fileID: 2121417206267783700}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -48,9 +49,17 @@ MonoBehaviour:
     type: 3}
   blackCell: {fileID: 7391918798519281760, guid: d70db060481655545b33bd27c2fe4fcb,
     type: 3}
-  piece: {fileID: 7100044553109119940, guid: 2e9509474739c2242a54f5b9acb8c079, type: 3}
+  pawn: {fileID: 0}
+  rook: {fileID: 0}
+  knight: {fileID: 0}
+  bishop: {fileID: 0}
+  queen: {fileID: 0}
+  king: {fileID: 0}
+  wall: {fileID: 0}
+  coinsText: {fileID: 0}
   nRows: 5
   nCols: 3
+  difficulty: 0
 --- !u!114 &3282634428543684179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,5 +70,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2eb21a9cf3dca9f4aa50f8d94505943c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2121417206267783700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3282634428543684180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7997a834f8ea64cb8d6b0a0be737b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

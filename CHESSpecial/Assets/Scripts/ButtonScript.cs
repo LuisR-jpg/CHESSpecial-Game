@@ -7,6 +7,7 @@ public class ButtonScript : MonoBehaviour
 {
     private Button b;
     public GameObject piece;
+    private List<GameObject> indicators;
 
     void Start()
     {
@@ -21,6 +22,9 @@ public class ButtonScript : MonoBehaviour
     }
     void Click()
     {
+        if (indicators == null) indicators = Clickable.GetIndicators();
+        foreach (var indicator in indicators)
+            indicator.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         EventTracker.Instance.ClearPiece();
         b.GetComponent<Image>().color = Color.green; 
         EventTracker.Instance.SetPiece(piece, b); 

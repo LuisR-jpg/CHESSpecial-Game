@@ -109,10 +109,11 @@ public abstract class PieceBaseController : MonoBehaviour
             // Instantiate(explosion, transform.position, Quaternion.identity);
             // AudioSource.PlayClipAtPoint(destroyed, transform.position);
             if(dir == -1) CoinsManager.Instance.addCoins(cost);
-            if(applicableBonus && Random.Range(0, 1) % 2 == 0)
+            if(applicableBonus /*&& Random.Range(0, 1) % 2 == 0*/)
             {
                 CoinsManager.Instance.addCoins(25);
-                Debug.Log("bonus");
+                GameObject.Find("ScriptHolder").GetComponent<EffectsHub>().TriggerBonusEffect();
+                print("bonus");
             }
             Destroy(gameObject);
         }

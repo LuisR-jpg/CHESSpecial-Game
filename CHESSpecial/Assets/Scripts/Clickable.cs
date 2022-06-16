@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class Clickable : MonoBehaviour
 {
     private bool clicked = false;
+    private List<GameObject> indicators;
+    void Start()
+    {
+
+    }
     void Update()
     {
-        //print(piece); 
-        //print(piece); 
         if (Input.GetMouseButton(0) && !clicked)
         {
             clicked = true;
@@ -19,17 +22,36 @@ public class Clickable : MonoBehaviour
             {
                 if (hit.transform)
                 {
+                    if(hit.transform.gameObject.tag == "white" || hit.transform.gameObject.tag == "black") return;
                     EventTracker.Instance.PlacePiece(hit.transform.gameObject);
+                    if (indicators == null) indicators = Clickable.GetIndicators();
+                    foreach (var indicator in indicators)
+                        indicator.transform.localScale = Vector3.zero;
                 }
             }
             else
             {
-                EventTracker.Instance.ClearPiece(); 
+                EventTracker.Instance.ClearPiece();
+                if (indicators == null) indicators = Clickable.GetIndicators();
+                foreach (var indicator in indicators)
+                    indicator.transform.localScale = Vector3.zero;
             }
+            
         }
         else if (!Input.GetMouseButton(0))
         {
             clicked = false;
         }
+    } 
+
+    public static List<GameObject> GetIndicators()
+    {
+            var ind = new List<GameObject>();
+            int nCols = GameObject.Find("ScriptHolder").GetComponent<Board>().nCols;
+            for (int i = 0; i < nCols; i++)
+            {
+                ind.Add(GameObject.Find("indicator" + i));
+            }
+        return ind;
     }
 }

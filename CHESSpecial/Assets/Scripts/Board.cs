@@ -8,6 +8,7 @@ public class Board: MonoBehaviour
     public GameObject pawn, rook, knight, bishop, queen, king;
     public GameObject wall;
     public GameObject coinsText;
+    public GameObject indicator;
     public int nRows = 8;
     public int nCols = 8;
     public int difficulty; // max level of pieces that should appear
@@ -20,7 +21,8 @@ public class Board: MonoBehaviour
         spawningCells = new List<GameObject>();
         difficulty = Mathf.Min(difficulty, 6);
         difficulty = Mathf.Max(difficulty, 1); 
-        pieces = new GameObject[] { pawn, rook, knight, bishop, queen, king }; 
+        pieces = new GameObject[] { pawn, rook, knight, bishop, queen, king };
+        int clickableIdx = 0;
         for(int i = 0; i < nRows; i++){
             for(int j = 0; j < nCols; j++){
                 GameObject cell = Instantiate(((i + j) % 2 == 1)? blackCell: whiteCell);
@@ -28,6 +30,14 @@ public class Board: MonoBehaviour
                 cell.transform.position = new Vector3(i - (float)nRows/2 - 0.5f, 0, j - (float)nCols/2 - 0.5f);
                 cell.transform.eulerAngles = new Vector3(-90, 0, 0);
                 if(i != 0) cell.layer = LayerMask.NameToLayer("Ignore Raycast");
+                else
+                {
+                    var ind = Instantiate(indicator);
+                    ind.layer = LayerMask.NameToLayer("Ignore Raycast");
+                    ind.transform.position = cell.transform.position;
+                    ind.transform.localScale = Vector3.zero;
+                    ind.name = "indicator" + clickableIdx++;
+                }
                 if (i == nRows - 1) spawningCells.Add(cell); 
             }
         }
@@ -46,6 +56,16 @@ public class Board: MonoBehaviour
         wallW.tag = "white";
         wallW.transform.position = new Vector3((float)nRows / 2 - 0.75f, 1f, -1f);
         wallW.transform.localScale = new Vector3(0.5f, 2f, nCols);
+
+        //for(int i = 0; i < spawningCells.Count; i++)
+        //{
+        //    var ind = Instantiate(indicator);
+        //    ind.layer = LayerMask.NameToLayer("Ignore Raycast");
+        //    ind.transform.position = spawningCells[i].transform.position;
+        //    print(spawningCells[i].transform.position);
+        //    ind.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        //    ind.name = "indicator" + i; 
+        //}
         StartCoroutine(Spawner());
     }
 
