@@ -28,7 +28,7 @@ public class EffectsHub : MonoBehaviour
     {
         if (bonusPanel.activeInHierarchy) return;
         bonusPanel.SetActive(true);
-        AudioSource.PlayClipAtPoint(bonusAudio, Vector3.zero, 1.0f);
+        AudioSource.PlayClipAtPoint(bonusAudio, Vector3.zero, 2.0f);
         StartCoroutine(ResetBonusEffect());
     }
     

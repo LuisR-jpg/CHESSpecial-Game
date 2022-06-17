@@ -37,7 +37,7 @@ public class MeeleController : PieceBaseController
             aState = 0;
             if (currentlyAttacking == null) return;
             PieceBaseController enemy = currentlyAttacking.GetComponent<PieceBaseController>();
-            enemy.Damage(power, strength < enemy.strength);
+            enemy.Damage(power, power < enemy.power);
             AudioClip toPlay = (Random.Range(0, 10) % 2 == 0 ? hitAudio1 : hitAudio2); 
             AudioSource.PlayClipAtPoint(toPlay, transform.position, 1.0f);
         }

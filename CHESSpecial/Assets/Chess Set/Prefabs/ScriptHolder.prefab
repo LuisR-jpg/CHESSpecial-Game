@@ -57,7 +57,8 @@ MonoBehaviour:
   king: {fileID: 0}
   wall: {fileID: 0}
   coinsText: {fileID: 0}
-  indicator: {fileID: 0}
+  indicator: {fileID: 1043113700491334288, guid: fe6de7da7d38268408041077d834e95b,
+    type: 3}
   nRows: 5
   nCols: 3
   difficulty: 0

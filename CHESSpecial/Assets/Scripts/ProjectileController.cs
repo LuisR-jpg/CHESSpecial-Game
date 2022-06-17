@@ -20,7 +20,7 @@ public class ProjectileController : PieceBaseController
             float v = Mathf.Sqrt(9.81f * (Mathf.Abs(currentlyAttacking.transform.position.x - transform.position.x) - 0.70f) / 2);
             p.GetComponent<Rigidbody>().velocity = new Vector3(dir * v, v, 0);
             PieceBaseController enemy = currentlyAttacking.GetComponent<PieceBaseController>();
-            enemy.Damage(power, strength < enemy.strength);
+            enemy.Damage(power, power < enemy.power);
             AudioSource.PlayClipAtPoint(arrowAudio, transform.position, 1.0f);
         }
         else if (aState == 2)

@@ -107,7 +107,7 @@ public abstract class PieceBaseController : MonoBehaviour
         if (strength <= 0)
         {
             if(dir == -1) CoinsManager.Instance.addCoins(cost);
-            if(applicableBonus && Random.Range(0f, 1f) < 0.75 && gameObject.tag == "white")
+            if(applicableBonus && Random.Range(0f, 1f) <= 0.75f && gameObject.tag == "white")
             {
                 CoinsManager.Instance.addCoins(25);
                 GameObject.Find("ScriptHolder").GetComponent<EffectsHub>().TriggerBonusEffect();

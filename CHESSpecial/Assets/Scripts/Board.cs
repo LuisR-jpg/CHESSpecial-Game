@@ -15,6 +15,7 @@ public class Board: MonoBehaviour
     private List<GameObject> spawningCells;
     private GameObject[] pieces;
     private float step = 1f;
+    public int level;
 
     void Start()
     {
@@ -56,6 +57,13 @@ public class Board: MonoBehaviour
         wallW.tag = "white";
         wallW.transform.position = new Vector3((float)nRows / 2 - 0.75f, 1f, -1f);
         wallW.transform.localScale = new Vector3(0.5f, 2f, nCols);
+        wallW.GetComponent<WallController>().SetLevel(level);
+
+        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = new Vector3(-1, -0.26f, -1);
+        cube.transform.localScale = new Vector3(nRows + 1, 0.5f, nCols);
+        cube.GetComponent<Renderer>().material.SetColor("_Color", Color.grey);
+        cube.layer = LayerMask.NameToLayer("Ignore Raycast");
 
         StartCoroutine(Spawner());
     }

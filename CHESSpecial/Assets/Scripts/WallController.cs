@@ -8,6 +8,8 @@ public class WallController : PieceBaseController
 {
     TextMeshProUGUI text;
     public AudioClip damageAudio;
+    private int level = 0;
+
     protected override void Start()
     {
         base.Start();
@@ -29,7 +31,14 @@ public class WallController : PieceBaseController
         if(strength == 0)
         {
             string newScene = tag == "black"? "WhiteWins": "BlackWins";
+            if(newScene == "BlackWins")
+                PlayerPrefs.SetInt("Level" + (level + 1), 1);
             SceneManager.LoadScene(newScene);
         }
+    }
+
+    public void SetLevel(int l)
+    {
+        level = l;
     }
 }
