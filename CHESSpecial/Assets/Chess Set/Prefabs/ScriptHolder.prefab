@@ -57,6 +57,7 @@ MonoBehaviour:
   king: {fileID: 0}
   wall: {fileID: 0}
   coinsText: {fileID: 0}
+  indicator: {fileID: 0}
   nRows: 5
   nCols: 3
   difficulty: 0
@@ -72,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb21a9cf3dca9f4aa50f8d94505943c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placePieceAudio: {fileID: 8300000, guid: 24b282689211bf343ace692f9ab47fd0, type: 3}
 --- !u!114 &2121417206267783700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,3 +86,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7997a834f8ea64cb8d6b0a0be737b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bonusPanel: {fileID: 0}
+  bonusAudio: {fileID: 0}

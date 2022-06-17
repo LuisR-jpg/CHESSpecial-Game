@@ -111,5 +111,7 @@ MonoBehaviour:
   power: 8
   range: 5
   cost: 15
+  deathAudio: {fileID: 8300000, guid: 497f3b9e0afe93c41ac419dcdc9389e0, type: 3}
   projectile: {fileID: 465873322752867916, guid: d911e3b376163b54e91d1dd34c7759c2,
     type: 3}
+  arrowAudio: {fileID: 8300000, guid: a3b3c321330c5ca49ac2e6313b3f7bbc, type: 3}

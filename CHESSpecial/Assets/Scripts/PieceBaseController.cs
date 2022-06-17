@@ -11,6 +11,7 @@ public abstract class PieceBaseController : MonoBehaviour
     protected float cellSize = 1f; 
     public int dir = 1; //1 player, -1 AI
     public int strength, power, range, cost;
+    public AudioClip deathAudio;
     protected GameObject currentlyAttacking;
  
     protected virtual void Start()
@@ -105,16 +106,13 @@ public abstract class PieceBaseController : MonoBehaviour
         // Kill
         if (strength <= 0)
         {
-
-            // Instantiate(explosion, transform.position, Quaternion.identity);
-            // AudioSource.PlayClipAtPoint(destroyed, transform.position);
             if(dir == -1) CoinsManager.Instance.addCoins(cost);
-            if(applicableBonus /*&& Random.Range(0, 1) % 2 == 0*/)
+            if(applicableBonus && Random.Range(0f, 1f) < 0.75 && gameObject.tag == "white")
             {
                 CoinsManager.Instance.addCoins(25);
                 GameObject.Find("ScriptHolder").GetComponent<EffectsHub>().TriggerBonusEffect();
-                print("bonus");
             }
+            AudioSource.PlayClipAtPoint(deathAudio, transform.position, 1.0f);
             Destroy(gameObject);
         }
     }

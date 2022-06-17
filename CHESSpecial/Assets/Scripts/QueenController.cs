@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class QueenController : PieceBaseController
 {
-    private int aSteps = 0; 
+    private int aSteps = 0;
+    public AudioClip hitAudio1, hitAudio2; 
+
     public override void MyFixedUpdate()
     {
         if (state == 1) // move forward
@@ -54,6 +56,8 @@ public class QueenController : PieceBaseController
             if (currentlyAttacking == null) return;
             PieceBaseController enemy = currentlyAttacking.GetComponent<PieceBaseController>();
             enemy.Damage(power, strength < enemy.strength);
+            AudioClip toPlay = (UnityEngine.Random.Range(0, 10) % 2 == 0 ? hitAudio1 : hitAudio2);
+            AudioSource.PlayClipAtPoint(toPlay, transform.position, 1.0f);
         }
         else if (aState == 0)
         {

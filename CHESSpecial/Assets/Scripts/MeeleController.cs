@@ -6,6 +6,7 @@ public class MeeleController : PieceBaseController
 {
     // aState 1 -> backwards, 2 -> forward, 3 -> attacking
     private int aSteps = 0;
+    public AudioClip hitAudio1, hitAudio2;
 
     public override void Attack()
     {
@@ -37,6 +38,8 @@ public class MeeleController : PieceBaseController
             if (currentlyAttacking == null) return;
             PieceBaseController enemy = currentlyAttacking.GetComponent<PieceBaseController>();
             enemy.Damage(power, strength < enemy.strength);
+            AudioClip toPlay = (Random.Range(0, 10) % 2 == 0 ? hitAudio1 : hitAudio2); 
+            AudioSource.PlayClipAtPoint(toPlay, transform.position, 1.0f);
         }
         else if (aState == 0)
         {

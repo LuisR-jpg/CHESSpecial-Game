@@ -7,6 +7,7 @@ public class Clickable : MonoBehaviour
 {
     private bool clicked = false;
     private List<GameObject> indicators;
+    public AudioClip placePieceAudio;
     void Start()
     {
 
@@ -24,6 +25,7 @@ public class Clickable : MonoBehaviour
                 {
                     if(hit.transform.gameObject.tag == "white" || hit.transform.gameObject.tag == "black") return;
                     EventTracker.Instance.PlacePiece(hit.transform.gameObject);
+                    AudioSource.PlayClipAtPoint(placePieceAudio, hit.transform.position, 1.0f);
                     if (indicators == null) indicators = Clickable.GetIndicators();
                     foreach (var indicator in indicators)
                         indicator.transform.localScale = Vector3.zero;

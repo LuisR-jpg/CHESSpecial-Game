@@ -57,15 +57,6 @@ public class Board: MonoBehaviour
         wallW.transform.position = new Vector3((float)nRows / 2 - 0.75f, 1f, -1f);
         wallW.transform.localScale = new Vector3(0.5f, 2f, nCols);
 
-        //for(int i = 0; i < spawningCells.Count; i++)
-        //{
-        //    var ind = Instantiate(indicator);
-        //    ind.layer = LayerMask.NameToLayer("Ignore Raycast");
-        //    ind.transform.position = spawningCells[i].transform.position;
-        //    print(spawningCells[i].transform.position);
-        //    ind.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        //    ind.name = "indicator" + i; 
-        //}
         StartCoroutine(Spawner());
     }
 

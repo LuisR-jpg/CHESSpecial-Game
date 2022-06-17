@@ -7,6 +7,7 @@ public class ProjectileController : PieceBaseController
     // aState 1 -> shoot, 2 -> wait
     int aWait = 0;
     public GameObject projectile;
+    public AudioClip arrowAudio;
 
     public override void Attack()
     {
@@ -20,6 +21,7 @@ public class ProjectileController : PieceBaseController
             p.GetComponent<Rigidbody>().velocity = new Vector3(dir * v, v, 0);
             PieceBaseController enemy = currentlyAttacking.GetComponent<PieceBaseController>();
             enemy.Damage(power, strength < enemy.strength);
+            AudioSource.PlayClipAtPoint(arrowAudio, transform.position, 1.0f);
         }
         else if (aState == 2)
         {

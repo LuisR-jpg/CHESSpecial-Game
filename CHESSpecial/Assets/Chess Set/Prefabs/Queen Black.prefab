@@ -111,3 +111,6 @@ MonoBehaviour:
   power: 12
   range: 1
   cost: 100
+  deathAudio: {fileID: 8300000, guid: 497f3b9e0afe93c41ac419dcdc9389e0, type: 3}
+  hitAudio1: {fileID: 8300000, guid: b022d024c479db2449287ffdc657fc46, type: 3}
+  hitAudio2: {fileID: 8300000, guid: 30a330c9999b03842903910ed4f85301, type: 3}

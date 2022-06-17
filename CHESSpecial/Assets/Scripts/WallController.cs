@@ -7,6 +7,7 @@ using TMPro;
 public class WallController : PieceBaseController
 {
     TextMeshProUGUI text;
+    public AudioClip damageAudio;
     protected override void Start()
     {
         base.Start();
@@ -21,6 +22,7 @@ public class WallController : PieceBaseController
 
     public override void Damage(int damage, bool willBeDestroyed)
     {
+        AudioSource.PlayClipAtPoint(damageAudio, transform.position, 1.0f);
         strength -= damage;
         strength = Mathf.Max(0, strength);
         text.text = strength.ToString();

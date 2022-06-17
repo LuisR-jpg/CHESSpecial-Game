@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EffectsHub : MonoBehaviour
 {
     public GameObject bonusPanel;
+    public AudioClip bonusAudio;
     private Vector2 bonusSize;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class EffectsHub : MonoBehaviour
     {
         if (bonusPanel.activeInHierarchy) return;
         bonusPanel.SetActive(true);
+        AudioSource.PlayClipAtPoint(bonusAudio, Vector3.zero, 1.0f);
         StartCoroutine(ResetBonusEffect());
     }
     
