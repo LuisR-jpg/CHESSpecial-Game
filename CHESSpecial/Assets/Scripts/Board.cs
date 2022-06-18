@@ -59,6 +59,8 @@ public class Board: MonoBehaviour
         wallW.transform.localScale = new Vector3(0.5f, 2f, nCols);
         wallW.GetComponent<WallController>().SetLevel(level);
 
+        Camera.main.GetComponent<CameraMove>().SetBoundaries(6f, 2f, wallB.transform.position.x, wallW.transform.position.x);
+
         var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.position = new Vector3(-1, -0.26f, -1);
         cube.transform.localScale = new Vector3(nRows + 1, 0.5f, nCols);

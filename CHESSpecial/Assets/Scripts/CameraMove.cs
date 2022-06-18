@@ -48,5 +48,13 @@ public class CameraMove : MonoBehaviour
         if (Input.mouseScrollDelta != Vector2.zero)
             transform.position = transform.position + Input.mouseScrollDelta.y * transform.forward;
     }
+
+    public void SetBoundaries(float top, float bottom, float left, float right)
+    {
+        leftBoundary.transform.position = new Vector3(left, 0, 0);
+        rightBoundary.transform.position = new Vector3(right, 0, 0);
+        lowerBoundary.transform.position = new Vector3(0, bottom, 0);
+        upperBoundary.transform.position = new Vector3(0, top, 0); 
+    }
 }
 
