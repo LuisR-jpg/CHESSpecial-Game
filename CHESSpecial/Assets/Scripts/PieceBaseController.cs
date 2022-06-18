@@ -106,7 +106,7 @@ public abstract class PieceBaseController : MonoBehaviour
         // Kill
         if (strength <= 0)
         {
-            if(dir == -1) CoinsManager.Instance.addCoins(cost);
+            if(dir == -1) CoinsManager.Instance.addCoins(cost / 2);
             if(applicableBonus && Random.Range(0f, 1f) <= 0.75f && gameObject.tag == "white")
             {
                 CoinsManager.Instance.addCoins(25);

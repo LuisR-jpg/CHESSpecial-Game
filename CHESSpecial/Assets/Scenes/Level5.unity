@@ -2537,7 +2537,7 @@ PrefabInstance:
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}
       propertyPath: level
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}
@@ -2573,6 +2573,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3237306622281316572, guid: 5041d6bcb23d70644b525d663478040d,
         type: 3}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
+      propertyPath: booster
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}
       propertyPath: coinsText

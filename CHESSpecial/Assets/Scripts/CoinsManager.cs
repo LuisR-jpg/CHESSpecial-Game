@@ -28,8 +28,9 @@ public class CoinsManager
 	}
     public void SetText(GameObject txt)
     {
+		coins = 0;
         text = txt.GetComponent<TextMeshProUGUI>();
-        _instance.addCoins(30);
+        _instance.addCoins(10);
     }
     public void addCoins(int qty) 
     {

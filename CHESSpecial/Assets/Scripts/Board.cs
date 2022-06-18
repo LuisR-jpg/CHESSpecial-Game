@@ -16,6 +16,7 @@ public class Board: MonoBehaviour
     private GameObject[] pieces;
     private float step = 1f;
     public int level;
+    public float booster;
 
     void Start()
     {
@@ -74,7 +75,8 @@ public class Board: MonoBehaviour
     {
         while(true)
         {
-            int idx = Random.Range(0, difficulty);
+            int maxPiece = Mathf.Min(difficulty, MaxDifficultyForStep(step));
+            int idx = Random.Range(0, maxPiece);
             var cell = spawningCells[Random.Range(0, nCols)];
             var piece = Instantiate(pieces[idx]);
             piece.transform.position = cell.transform.position;
@@ -84,9 +86,18 @@ public class Board: MonoBehaviour
         }
     }
 
-    float ProgressionF(float x)
+    float ProgressionF(float x) 
     {
-        return 10 / x;
+        return 10f * (1f - 0.7f * Mathf.Exp(-5f * Mathf.Exp(-0.5f * booster * x)));
     }
 
+    int MaxDifficultyForStep(float step)
+    {
+        if (step <= 1.5f) return 1;
+        if (step <= 2f) return 2;
+        if (step <= 2.5f) return 3;
+        if (step <= 3f) return 4;
+        if (step <= 4f) return 5;
+        return 6;
+    }
 }

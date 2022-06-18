@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dir: 1
   strength: 70
-  power: 12
+  power: 8
   range: 3
   cost: 50
   deathAudio: {fileID: 8300000, guid: 497f3b9e0afe93c41ac419dcdc9389e0, type: 3}

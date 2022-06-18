@@ -3032,6 +3032,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
         type: 3}
+      propertyPath: booster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282634428543684181, guid: 3a71f6f3585124d4ea9a8401f06d3df1,
+        type: 3}
       propertyPath: coinsText
       value: 
       objectReference: {fileID: 1396095494}

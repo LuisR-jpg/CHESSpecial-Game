@@ -25,7 +25,7 @@ public class WallController : PieceBaseController
     public override void Damage(int damage, bool willBeDestroyed)
     {
         AudioSource.PlayClipAtPoint(damageAudio, transform.position, 1.0f);
-        strength -= damage;
+        strength -= damage / 4;
         strength = Mathf.Max(0, strength);
         text.text = strength.ToString();
         if(strength == 0)

@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 1
-  strength: 100
+  strength: 75
   power: 15
   range: 1
   cost: 30

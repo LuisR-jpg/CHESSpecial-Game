@@ -107,8 +107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 1
-  strength: 100
+  strength: 200
   power: 0
   range: 0
   cost: 0
+  deathAudio: {fileID: 0}
   damageAudio: {fileID: 8300000, guid: 64489dcccad3ad84d900770c02a11930, type: 3}
