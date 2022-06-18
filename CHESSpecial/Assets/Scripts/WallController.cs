@@ -26,6 +26,7 @@ public class WallController : PieceBaseController
     {
         AudioSource.PlayClipAtPoint(damageAudio, transform.position, 1.0f);
         strength -= damage / 4;
+        if (tag == "white") CoinsManager.Instance.addCoins(1); 
         strength = Mathf.Max(0, strength);
         text.text = strength.ToString();
         if(strength == 0)
